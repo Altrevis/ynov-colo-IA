@@ -1,55 +1,343 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CartoEcoIA - L'intelligence artificielle au service de l'écologie</title>
-    <link rel="stylesheet" href="src/styles/globals.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>CartoEcoIA</h1>
-        <nav>
-            <ul>
-                <li><a href="#" class="nav-link active" data-page="accueil" onclick="showPage('accueil')">Accueil</a></li>
-                <li><a href="#" class="nav-link" data-page="definition" onclick="showPage('definition')">Qu'est-ce que c'est ?</a></li>
-                <li><a href="#" class="nav-link" data-page="applications" onclick="showPage('applications')">Applications</a></li>
-                <li><a href="#" class="nav-link" data-page="avantages-limites" onclick="showPage('avantages-limites')">Avantages & Limites</a></li>
-                <li><a href="#" class="nav-link" data-page="carte" onclick="showPage('carte')">Carte Interactive</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">CartoEcoIA</div>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="#" onclick="showPage('accueil')" class="nav-link active">Accueil</a></li>
+                        <li><a href="#" onclick="showPage('definition')" class="nav-link">Qu'est-ce que c'est ?</a></li>
+                        <li><a href="#" onclick="showPage('applications')" class="nav-link">Applications</a></li>
+                        <li><a href="#" onclick="showPage('avantages')" class="nav-link">Avantages & Limites</a></li>
+                        <li><a href="#" onclick="showPage('carte')" class="nav-link">Carte Interactive</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
 
-    <main id="main-content">
-        <!-- Contenu chargé dynamiquement ici -->
+    <main class="container">
+        <!-- Page Accueil -->
+        <div id="accueil" class="page active">
+            <h1 class="page-title">CartoEcoIA</h1>
+            <p class="page-subtitle">L'intelligence artificielle au service de l'écologie</p>
+            
+            <div class="hero-section">
+                <h2>Révolutionner la cartographie écologique</h2>
+                <p>Découvrez comment l'intelligence artificielle transforme notre compréhension et notre protection de l'environnement grâce à des outils cartographiques innovants.</p>
+            </div>
+
+            <div class="content">
+                <p>Bienvenue sur CartoEcoIA, votre portail d'information dédié à l'intersection fascinante entre l'intelligence artificielle et la cartographie écologique. Dans un monde où les défis environnementaux n'ont jamais été aussi pressants, les technologies d'IA offrent des solutions révolutionnaires pour comprendre, analyser et protéger notre planète.</p>
+
+                <h3>Notre Mission</h3>
+                <p>Ce site a pour objectif de démystifier l'utilisation de l'intelligence artificielle dans le domaine de la cartographie écologique. Nous souhaitons rendre accessible à tous les professionnels, chercheurs, étudiants et citoyens curieux les concepts, applications et enjeux de cette discipline émergente.</p>
+
+                <div class="highlight-box">
+                    <h3>Pourquoi la cartographie écologique avec l'IA ?</h3>
+                    <p>La cartographie écologique traditionnelle, bien qu'essentielle, présente des limitations en termes de rapidité, de précision et de capacité de traitement de données massives. L'intelligence artificielle permet aujourd'hui de surmonter ces obstacles en offrant des outils capables d'analyser des téraoctets de données satellitaires, de modéliser des écosystèmes complexes et de prédire l'évolution de la biodiversité avec une précision inégalée.</p>
+                </div>
+
+                <h3>L'Urgence Écologique</h3>
+                <p>Face au changement climatique, à la perte de biodiversité et à la dégradation des écosystèmes, il est crucial de disposer d'outils de surveillance et d'analyse performants. La cartographie écologique assistée par IA répond à cette urgence en permettant un suivi en temps réel de l'environnement, une détection précoce des menaces et une aide à la prise de décision basée sur des données scientifiques robustes.</p>
+
+                <p>Explorez les différentes sections de ce site pour découvrir comment l'IA révolutionne notre approche de l'écologie, quelles sont ses applications concrètes, et quels défis restent à relever pour une utilisation optimale de ces technologies au service de la planète.</p>
+            </div>
+        </div>
+
+        <!-- Page Définition -->
+        <div id="definition" class="page">
+            <h1 class="page-title">Qu'est-ce que la cartographie écologique assistée par IA ?</h1>
+            <p class="page-subtitle">Définition, contexte et bénéfices d'une révolution technologique</p>
+
+            <div class="content">
+                <h3>Définition</h3>
+                <p>La cartographie écologique assistée par intelligence artificielle désigne l'ensemble des techniques et méthodes qui utilisent des algorithmes d'apprentissage automatique pour analyser, interpréter et représenter spatialement les données environnementales. Cette approche combine les sciences de l'environnement, la géomatique et l'informatique pour créer des cartes précises et dynamiques des écosystèmes terrestres et marins.</p>
+
+                <div class="highlight-box">
+                    <p><strong>En termes simples :</strong> Il s'agit d'utiliser l'intelligence artificielle pour créer des cartes qui nous montrent l'état de la nature, son évolution et les menaces qui pèsent sur elle, de manière beaucoup plus rapide et précise que les méthodes traditionnelles.</p>
+                </div>
+
+                <h3>Contexte Historique</h3>
+                <p>La cartographie écologique existe depuis plusieurs décennies, mais elle était traditionnellement limitée par la capacité humaine à traiter de grandes quantités de données. L'avènement de l'intelligence artificielle dans les années 2010, combiné à l'explosion des données satellitaires et des capteurs environnementaux, a créé une opportunité sans précédent.</p>
+
+                <p>Les premières applications significatives ont vu le jour vers 2015, avec l'utilisation de réseaux de neurones pour l'analyse d'images satellitaires. Depuis, le domaine connaît une croissance exponentielle, alimentée par l'amélioration des algorithmes d'apprentissage profond et l'augmentation de la puissance de calcul disponible.</p>
+
+                <h3>Technologies Clés</h3>
+                <p>Plusieurs technologies d'IA sont au cœur de cette révolution :</p>
+
+                <p><strong>L'apprentissage profond (Deep Learning)</strong> permet d'analyser automatiquement les images satellitaires pour identifier différents types de végétation, détecter la déforestation ou suivre la migration des espèces.</p>
+
+                <p><strong>L'apprentissage automatique (Machine Learning)</strong> est utilisé pour prédire l'évolution des écosystèmes en analysant des patterns dans les données historiques et en identifiant les facteurs de changement.</p>
+
+                <p><strong>La vision par ordinateur</strong> automatise la reconnaissance d'espèces animales et végétales à partir d'images, remplaçant des heures de travail manuel par des analyses instantanées.</p>
+
+                <h3>Bénéfices Transformateurs</h3>
+                <p>L'intégration de l'IA dans la cartographie écologique apporte des bénéfices considérables. La vitesse de traitement permet d'analyser en quelques heures des données qui prendraient des mois à traiter manuellement. La précision est considérablement améliorée grâce à la capacité de l'IA à détecter des patterns subtils invisibles à l'œil humain.</p>
+
+                <p>L'échelle d'analyse est également révolutionnée : il devient possible de cartographier simultanément des milliers de kilomètres carrés avec un niveau de détail inégalé. Enfin, la surveillance continue permet un suivi en temps réel des changements environnementaux, ouvrant la voie à des interventions rapides et ciblées.</p>
+
+                <p>Cette approche transforme fondamentalement notre capacité à comprendre et protéger l'environnement, marquant une nouvelle ère dans les sciences écologiques.</p>
+            </div>
+        </div>
+
+        <!-- Page Applications -->
+        <div id="applications" class="page">
+            <h1 class="page-title">Applications concrètes</h1>
+            <p class="page-subtitle">Les grands usages de l'IA en cartographie écologique</p>
+
+            <div class="content">
+                <p>L'intelligence artificielle trouve de nombreuses applications pratiques dans la cartographie écologique. Voici les principales utilisations qui transforment déjà notre approche de la conservation et de la gestion environnementale.</p>
+
+                <div class="applications-grid">
+                    <div class="application-card">
+                        <h4>🛰️ Analyse d'images satellitaires</h4>
+                        <p>L'IA analyse automatiquement les images satellitaires pour cartographier la couverture forestière, détecter la déforestation en temps réel, et suivre l'évolution des zones urbaines. Les algorithmes peuvent identifier des changements de quelques mètres carrés sur des territoires de millions d'hectares.</p>
+                    </div>
+
+                    <div class="application-card">
+                        <h4>🐾 Modélisation de la distribution des espèces</h4>
+                        <p>Les modèles d'IA prédisent où les espèces sont susceptibles de vivre en analysant les conditions climatiques, topographiques et écologiques. Cette approche aide à identifier les zones critiques pour la conservation et à prévoir l'impact du changement climatique sur la biodiversité.</p>
+                    </div>
+
+                    <div class="application-card">
+                        <h4>📊 Traitement de données environnementales massives</h4>
+                        <p>L'IA traite simultanément des données provenant de multiples sources : stations météorologiques, capteurs de qualité de l'air, données hydrologiques, et mesures de biodiversité. Cette intégration permet une vision holistique des écosystèmes.</p>
+                    </div>
+
+                    <div class="application-card">
+                        <h4>🔍 Reconnaissance automatique d'espèces</h4>
+                        <p>Les systèmes de vision par ordinateur identifient automatiquement les espèces animales et végétales à partir de photos ou de vidéos. Cette technologie révolutionne les inventaires de biodiversité et permet aux citoyens de contribuer à la science participative.</p>
+                    </div>
+
+                    <div class="application-card">
+                        <h4>🌊 Surveillance des écosystèmes marins</h4>
+                        <p>L'IA analyse les données océanographiques pour cartographier les récifs coralliens, suivre les migrations des poissons, et détecter la pollution marine. Les algorithmes peuvent identifier des changements dans la santé des écosystèmes marins avant qu'ils ne deviennent critiques.</p>
+                    </div>
+
+                    <div class="application-card">
+                        <h4>⚡ Aide à la décision pour la conservation</h4>
+                        <p>Les systèmes d'IA fournissent des recommandations basées sur l'analyse de scénarios multiples. Ils aident les gestionnaires à optimiser les stratégies de conservation, à planifier les corridors écologiques, et à prioriser les interventions selon leur impact potentiel.</p>
+                    </div>
+                </div>
+
+                <h3>Études de Cas Remarquables</h3>
+                
+                <div class="highlight-box">
+                    <h4>Projet Global Forest Watch</h4>
+                    <p>Cette initiative utilise l'IA pour analyser les images satellitaires et fournir des alertes de déforestation en temps quasi-réel. Le système traite quotidiennement des téraoctets de données pour surveiller les forêts mondiales, permettant aux autorités d'intervenir rapidement contre la déforestation illégale.</p>
+                </div>
+
+                <p><strong>Protection des espèces menacées :</strong> Des projets utilisent l'IA pour suivre les populations d'animaux en danger, comme les éléphants d'Afrique ou les tigres d'Asie, en analysant automatiquement les images de pièges photographiques installés dans leur habitat naturel.</p>
+
+                <p><strong>Restauration d'écosystèmes :</strong> L'IA aide à identifier les zones prioritaires pour la restauration écologique en analysant la dégradation des sols, la connectivité des habitats, et le potentiel de régénération naturelle.</p>
+
+                <p>Ces applications concrètes démontrent comment l'IA transforme la cartographie écologique d'une discipline descriptive en un outil prédictif et proactif pour la conservation de l'environnement.</p>
+            </div>
+        </div>
+
+        <!-- Page Avantages et Limites -->
+        <div id="avantages" class="page">
+            <h1 class="page-title">Avantages et limites</h1>
+            <p class="page-subtitle">Une analyse équilibrée des bénéfices et défis de l'IA écologique</p>
+
+            <div class="content">
+                <p>L'utilisation de l'intelligence artificielle en cartographie écologique présente des avantages considérables, mais aussi des limites importantes qu'il convient de comprendre pour une utilisation optimale de ces technologies.</p>
+
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Avantages</h4>
+                        <p><strong>Rapidité exceptionnelle :</strong> L'IA peut analyser en quelques heures des données qui nécessiteraient des semaines de travail humain, permettant une réaction rapide aux changements environnementaux.</p>
+                        
+                        <p><strong>Précision améliorée :</strong> Les algorithmes détectent des patterns subtils invisibles à l'œil humain, augmentant significativement la précision des cartographies écologiques.</p>
+                        
+                        <p><strong>Traitement de données massives :</strong> Capacité à intégrer et analyser simultanément des téraoctets de données provenant de sources multiples.</p>
+                        
+                        <p><strong>Surveillance continue :</strong> Monitoring 24h/24 des écosystèmes grâce à l'automatisation des processus d'analyse.</p>
+                        
+                        <p><strong>Réduction des coûts :</strong> Diminution significative des coûts de surveillance sur le long terme malgré l'investissement initial.</p>
+                    </div>
+
+                    <div class="cons">
+                        <h4>⚠️ Limites et défis</h4>
+                        <p><strong>Dépendance aux données :</strong> La qualité des résultats dépend entièrement de la qualité et de la représentativité des données d'entraînement.</p>
+                        
+                        <p><strong>Biais algorithmiques :</strong> Risque de reproduction des biais présents dans les données historiques, pouvant conduire à des analyses faussées.</p>
+                        
+                        <p><strong>Complexité technique :</strong> Nécessite une expertise technique avancée pour développer, maintenir et interpréter les modèles d'IA.</p>
+                        
+                        <p><strong>Coûts initiaux élevés :</strong> Investissements importants en infrastructure informatique et en formation du personnel.</p>
+                        
+                        <p><strong>Manque d'explicabilité :</strong> Difficulté à comprendre comment l'IA arrive à ses conclusions, posant des problèmes de validation scientifique.</p>
+                    </div>
+                </div>
+
+                <h3>Défis Techniques Spécifiques</h3>
+                <p>La cartographie écologique par IA fait face à plusieurs défis techniques majeurs. La variabilité des conditions environnementales rend difficile la généralisation des modèles d'une région à l'autre. Les changements saisonniers, les conditions météorologiques, ou les variations géographiques peuvent affecter la performance des algorithmes.</p>
+
+                <p>La résolution temporelle constitue un autre défi : certains processus écologiques se déroulent sur des décennies, rendant difficile l'entraînement de modèles avec des données historiques limitées. De plus, les fausses détections peuvent avoir des conséquences importantes sur les décisions de conservation.</p>
+
+                <h3>Enjeux Éthiques et Sociétaux</h3>
+                <div class="highlight-box">
+                    <p>L'utilisation de l'IA en écologie soulève des questions éthiques importantes : qui contrôle les données environnementales ? Comment garantir l'équité dans l'accès à ces technologies ? Quelle est la responsabilité en cas d'erreur d'un système automatisé ?</p>
+                </div>
+
+                <p>La confidentialité des données géolocalisées, notamment celles concernant les espèces menacées, pose également des défis de sécurité. Il est crucial de protéger ces informations contre le braconnage ou l'exploitation illégale des ressources naturelles.</p>
+
+                <h3>Recommandations pour une Utilisation Optimale</h3>
+                <p>Pour maximiser les bénéfices tout en minimisant les risques, plusieurs bonnes pratiques sont recommandées :</p>
+
+                <p><strong>Validation croisée :</strong> Toujours valider les résultats de l'IA avec des méthodes traditionnelles et l'expertise humaine.</p>
+
+                <p><strong>Transparence :</strong> Documenter clairement les méthodes utilisées et les limites des modèles pour permettre une évaluation critique.</p>
+
+                <p><strong>Formation continue :</strong> Investir dans la formation des équipes pour comprendre et utiliser efficacement ces technologies.</p>
+
+                <p><strong>Collaboration interdisciplinaire :</strong> Favoriser le dialogue entre écologues, informaticiens et décideurs pour développer des solutions adaptées aux besoins réels.</p>
+
+                <p>L'avenir de la cartographie écologique assistée par IA dépendra de notre capacité à exploiter ses avantages tout en gérant ses limites de manière responsable et éthique.</p>
+            </div>
+        </div>
+
+        <!-- Page Carte Interactive -->
+        <div id="carte" class="page">
+            <h1 class="page-title">Carte Interactive</h1>
+            <p class="page-subtitle">Visualisation des projets de cartographie écologique assistée par IA</p>
+
+            <div class="content">
+                <p>Cette carte interactive présente une visualisation fictive mais réaliste des différents écosystèmes mondiaux et des projets de surveillance écologique utilisant l'intelligence artificielle. Cliquez sur les points rouges pour découvrir des exemples concrets d'applications.</p>
+
+                <div class="map-container">
+                    <svg class="map-svg" viewBox="0 0 800 400">
+                        <!-- Océans -->
+                        <rect class="ecosystem ocean" x="0" y="0" width="800" height="400" />
+                        
+                        <!-- Continents stylisés -->
+                        <!-- Amérique du Nord -->
+                        <path class="ecosystem forest" d="M50,80 Q120,60 180,90 L180,160 Q140,180 80,150 Z" />
+                        <path class="ecosystem urban" d="M120,100 Q150,95 170,120 L160,140 Q135,145 120,125 Z" />
+                        
+                        <!-- Amérique du Sud -->
+                        <path class="ecosystem forest" d="M100,200 Q160,180 200,220 L190,300 Q140,320 110,280 Z" />
+                        <path class="ecosystem desert" d="M150,240 Q180,235 200,260 L190,280 Q165,285 150,265 Z" />
+                        
+                        <!-- Europe -->
+                        <path class="ecosystem forest" d="M350,70 Q400,65 430,85 L425,120 Q385,125 360,105 Z" />
+                        <path class="ecosystem urban" d="M370,80 Q390,78 405,90 L400,105 Q382,107 370,95 Z" />
+                        
+                        <!-- Afrique -->
+                        <path class="ecosystem desert" d="M380,140 Q440,130 480,160 L470,220 Q420,230 390,200 Z" />
+                        <path class="ecosystem forest" d="M390,200 Q440,190 470,220 L460,280 Q415,290 395,255 Z" />
+                        
+                        <!-- Asie -->
+                        <path class="ecosystem mountain" d="M500,60 Q580,50 620,80 L610,140 Q550,150 510,120 Z" />
+                        <path class="ecosystem forest" d="M520,140 Q580,130 620,160 L610,220 Q555,230 525,195 Z" />
+                        <path class="ecosystem urban" d="M620,160 Q660,155 690,175 L685,200 Q650,205 625,185 Z" />
+                        
+                        <!-- Océanie -->
+                        <path class="ecosystem forest" d="M650,250 Q690,245 720,265 L715,290 Q680,295 655,275 Z" />
+                        
+                        <!-- Zones humides -->
+                        <path class="ecosystem wetland" d="M200,160 Q250,155 280,175 L275,195 Q240,200 205,180 Z" />
+                        <path class="ecosystem wetland" d="M480,220 Q520,215 540,235 L535,255 Q505,260 485,240 Z" />
+                        
+                        <!-- Points IA (projets de surveillance) -->
+                        <circle class="ai-point" cx="140" cy="120" r="4" onclick="showInfo('forest-na')" />
+                        <circle class="ai-point" cx="170" cy="250" r="4" onclick="showInfo('amazon')" />
+                        <circle class="ai-point" cx="390" cy="90" r="4" onclick="showInfo('europe-forest')" />
+                        <circle class="ai-point" cx="450" cy="180" r="4" onclick="showInfo('sahara')" />
+                        <circle class="ai-point" cx="580" cy="90" r="4" onclick="showInfo('himalayas')" />
+                        <circle class="ai-point" cx="670" cy="180" r="4" onclick="showInfo('asia-urban')" />
+                        <circle class="ai-point" cx="240" cy="175" r="4" onclick="showInfo('wetlands')" />
+                        <circle class="ai-point" cx="680" cy="270" r="4" onclick="showInfo('oceania')" />
+                    </svg>
+
+                    <div class="legend">
+                        <h4>Légende</h4>
+                        <div class="legend-item">
+                            <div class="legend-color forest"></div>
+                            <span class="legend-text">Forêts</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color ocean"></div>
+                            <span class="legend-text">Océans</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color desert"></div>
+                            <span class="legend-text">Déserts</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color mountain"></div>
+                            <span class="legend-text">Montagnes</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color urban"></div>
+                            <span class="legend-text">Zones urbaines</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color wetland"></div>
+                            <span class="legend-text">Zones humides</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #ff6b6b;"></div>
+                            <span class="legend-text">Projets IA</span>
+                        </div>
+                    </div>
+
+                    <div class="info-panel" id="info-panel">
+                        <h4 id="info-title">Projet de surveillance</h4>
+                        <p id="info-description">Cliquez sur un point rouge pour découvrir un projet.</p>
+                        <div id="info-details"></div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Projets actifs de cartographie IA</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2.5M</div>
+                        <div class="stat-label">Km² surveillés quotidiennement</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50TB</div>
+                        <div class="stat-label">Données analysées par jour</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Précision moyenne des détections</div>
+                    </div>
+                </div>
+
+                <h3>Technologies de Cartographie Utilisées</h3>
+                <p>Cette visualisation représente l'état actuel de la cartographie écologique assistée par IA à travers le monde. Chaque point rouge indique un projet réel ou fictif utilisant des technologies d'intelligence artificielle pour surveiller, analyser et protéger les écosystèmes.</p>
+
+                <div class="highlight-box">
+                    <h4>Méthodes de Collecte de Données</h4>
+                    <p>Les données présentées combinent l'imagerie satellitaire haute résolution, les capteurs IoT déployés sur le terrain, les drones de surveillance automatisés, et les réseaux de caméras intelligentes. L'IA traite ces flux de données en temps réel pour fournir une cartographie dynamique et précise des changements environnementaux.</p>
+                </div>
+
+                <p>L'interactivité de cette carte démontre comment les interfaces modernes peuvent rendre accessibles des données complexes sur l'état de notre planète, facilitant ainsi la prise de décision pour la conservation et la gestion durable des ressources naturelles.</p>
+            </div>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2025 CartoEcoIA - L'intelligence artificielle au service de l'écologie</p>
+        <div class="container">
+            <p>&copy; 2025 CartoEcoIA - L'intelligence artificielle au service de l'écologie</p>
+            <p>Site éducatif dédié à la sensibilisation aux technologies d'IA écologique</p>
+        </div>
     </footer>
-
-    <script>
-        function showPage(pageId) {
-            const mainContent = document.getElementById("main-content");
-            fetch(`src/pages/${pageId}.html`)
-                .then(response => response.text())
-                .then(html => {
-                    mainContent.innerHTML = html;
-                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                    const link = document.querySelector(`.nav-link[data-page="${pageId}"]`);
-                    if (link) link.classList.add('active');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                })
-                .catch(err => {
-                    mainContent.innerHTML = "<p>Erreur lors du chargement de la page.</p>";
-                    console.error(err);
-                });
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            showPage("accueil");
-        });
-    </script>
+    <script src="script.js" defer></script>
 </body>
 </html>
