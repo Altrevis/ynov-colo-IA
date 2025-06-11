@@ -45,9 +45,11 @@ header {
     gap: 0.5rem;
 }
 
-.logo::before {
-    content: "🌿";
-    font-size: 1.8rem;
+.logo img {
+    height: 2.2rem;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 nav ul {
