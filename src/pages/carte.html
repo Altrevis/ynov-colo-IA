@@ -1,0 +1,122 @@
+<!-- Page Carte Interactive -->
+        <div id="carte" class="page">
+            <h1 class="page-title">Carte Interactive</h1>
+            <p class="page-subtitle">Visualisation des projets de cartographie écologique assistée par IA</p>
+
+            <div class="content">
+                <p>Cette carte interactive présente une visualisation fictive mais réaliste des différents écosystèmes mondiaux et des projets de surveillance écologique utilisant l'intelligence artificielle. Cliquez sur les points rouges pour découvrir des exemples concrets d'applications.</p>
+
+                <div class="map-container">
+                    <svg class="map-svg" viewBox="0 0 800 400">
+                        <!-- Océans -->
+                        <rect class="ecosystem ocean" x="0" y="0" width="800" height="400" />
+                        
+                        <!-- Continents stylisés -->
+                        <!-- Amérique du Nord -->
+                        <path class="ecosystem forest" d="M50,80 Q120,60 180,90 L180,160 Q140,180 80,150 Z" />
+                        <path class="ecosystem urban" d="M120,100 Q150,95 170,120 L160,140 Q135,145 120,125 Z" />
+                        
+                        <!-- Amérique du Sud -->
+                        <path class="ecosystem forest" d="M100,200 Q160,180 200,220 L190,300 Q140,320 110,280 Z" />
+                        <path class="ecosystem desert" d="M150,240 Q180,235 200,260 L190,280 Q165,285 150,265 Z" />
+                        
+                        <!-- Europe -->
+                        <path class="ecosystem forest" d="M350,70 Q400,65 430,85 L425,120 Q385,125 360,105 Z" />
+                        <path class="ecosystem urban" d="M370,80 Q390,78 405,90 L400,105 Q382,107 370,95 Z" />
+                        
+                        <!-- Afrique -->
+                        <path class="ecosystem desert" d="M380,140 Q440,130 480,160 L470,220 Q420,230 390,200 Z" />
+                        <path class="ecosystem forest" d="M390,200 Q440,190 470,220 L460,280 Q415,290 395,255 Z" />
+                        
+                        <!-- Asie -->
+                        <path class="ecosystem mountain" d="M500,60 Q580,50 620,80 L610,140 Q550,150 510,120 Z" />
+                        <path class="ecosystem forest" d="M520,140 Q580,130 620,160 L610,220 Q555,230 525,195 Z" />
+                        <path class="ecosystem urban" d="M620,160 Q660,155 690,175 L685,200 Q650,205 625,185 Z" />
+                        
+                        <!-- Océanie -->
+                        <path class="ecosystem forest" d="M650,250 Q690,245 720,265 L715,290 Q680,295 655,275 Z" />
+                        
+                        <!-- Zones humides -->
+                        <path class="ecosystem wetland" d="M200,160 Q250,155 280,175 L275,195 Q240,200 205,180 Z" />
+                        <path class="ecosystem wetland" d="M480,220 Q520,215 540,235 L535,255 Q505,260 485,240 Z" />
+                        
+                        <!-- Points IA (projets de surveillance) -->
+                        <circle class="ai-point" cx="140" cy="120" r="4" onclick="showInfo('forest-na')" />
+                        <circle class="ai-point" cx="170" cy="250" r="4" onclick="showInfo('amazon')" />
+                        <circle class="ai-point" cx="390" cy="90" r="4" onclick="showInfo('europe-forest')" />
+                        <circle class="ai-point" cx="450" cy="180" r="4" onclick="showInfo('sahara')" />
+                        <circle class="ai-point" cx="580" cy="90" r="4" onclick="showInfo('himalayas')" />
+                        <circle class="ai-point" cx="670" cy="180" r="4" onclick="showInfo('asia-urban')" />
+                        <circle class="ai-point" cx="240" cy="175" r="4" onclick="showInfo('wetlands')" />
+                        <circle class="ai-point" cx="680" cy="270" r="4" onclick="showInfo('oceania')" />
+                    </svg>
+
+                    <div class="legend">
+                        <h4>Légende</h4>
+                        <div class="legend-item">
+                            <div class="legend-color forest"></div>
+                            <span class="legend-text">Forêts</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color ocean"></div>
+                            <span class="legend-text">Océans</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color desert"></div>
+                            <span class="legend-text">Déserts</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color mountain"></div>
+                            <span class="legend-text">Montagnes</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color urban"></div>
+                            <span class="legend-text">Zones urbaines</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color wetland"></div>
+                            <span class="legend-text">Zones humides</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #ff6b6b;"></div>
+                            <span class="legend-text">Projets IA</span>
+                        </div>
+                    </div>
+
+                    <div class="info-panel" id="info-panel">
+                        <h4 id="info-title">Projet de surveillance</h4>
+                        <p id="info-description">Cliquez sur un point rouge pour découvrir un projet.</p>
+                        <div id="info-details"></div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Projets actifs de cartographie IA</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2.5M</div>
+                        <div class="stat-label">Km² surveillés quotidiennement</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50TB</div>
+                        <div class="stat-label">Données analysées par jour</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Précision moyenne des détections</div>
+                    </div>
+                </div>
+
+                <h3>Technologies de Cartographie Utilisées</h3>
+                <p>Cette visualisation représente l'état actuel de la cartographie écologique assistée par IA à travers le monde. Chaque point rouge indique un projet réel ou fictif utilisant des technologies d'intelligence artificielle pour surveiller, analyser et protéger les écosystèmes.</p>
+
+                <div class="highlight-box">
+                    <h4>Méthodes de Collecte de Données</h4>
+                    <p>Les données présentées combinent l'imagerie satellitaire haute résolution, les capteurs IoT déployés sur le terrain, les drones de surveillance automatisés, et les réseaux de caméras intelligentes. L'IA traite ces flux de données en temps réel pour fournir une cartographie dynamique et précise des changements environnementaux.</p>
+                </div>
+
+                <p>L'interactivité de cette carte démontre comment les interfaces modernes peuvent rendre accessibles des données complexes sur l'état de notre planète, facilitant ainsi la prise de décision pour la conservation et la gestion durable des ressources naturelles.</p>
+            </div>
+        </div>
