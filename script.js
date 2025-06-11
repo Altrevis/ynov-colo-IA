@@ -1,28 +1,14 @@
-        // Navigation entre les pages
-        function showPage(pageId) {
-            // Masquer toutes les pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-            
-            // Afficher la page sélectionnée
-            document.getElementById(pageId).classList.add('active');
-            
-            // Mettre à jour la navigation
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => link.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Fermer le menu mobile si ouvert
-            const nav = document.getElementById('nav');
-            nav.classList.remove('mobile-open');
-            
-            // Remonter en haut de la page
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            // Empêcher le comportement par défaut du lien
-            if (event) {
-                event.preventDefault();
-            }
+// Navigation entre les pages
+        function showPage(pageId, event) {
+            if (event) event.preventDefault();
+            fetch(`pages/${pageId}.html`)
+                .then(res => res.text())
+                .then(html => {
+                    document.getElementById('main-content').innerHTML = html;
+                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                    document.querySelector(`.nav-link[data-page="${pageId}"]`).classList.add('active');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
         }
 
         // Menu mobile
