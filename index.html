@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoIA - L'intelligence artificielle au service de l'écologie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #2d5a3d;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(45, 90, 61, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(45, 90, 61, 0.98);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #7ed321;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #7ed321;
+        }
+
+        /* Pages */
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #2d5a3d 0%, #4a7c59 50%, #7ed321 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="0.5" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #7ed321;
+            color: #2d5a3d;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(126, 211, 33, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(126, 211, 33, 0.4);
+        }
+
+        /* Content Sections */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2d5a3d;
+        }
+
+        /* Content Zones */
+        .content-zone {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .content-zone:hover {
+            transform: translateY(-5px);
+        }
+
+        .text-zone {
+            background: linear-gradient(135deg, #f8fffe 0%, #e8f5e8 100%);
+        }
+
+        .media-zone {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+            text-align: center;
+        }
+
+        .media-placeholder {
+            background: #c3e9d0;
+            border: 2px dashed #7ed321;
+            border-radius: 10px;
+            padding: 3rem;
+            margin: 1rem 0;
+            color: #4a7c59;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .media-placeholder:hover {
+            background: #b8e6c1;
+            border-color: #4a7c59;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d5a3d;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">EcoIA</a>
+            <ul class="nav-menu">
+                <li><a href="#" onclick="showPage('accueil')" class="nav-link active">Accueil</a></li>
+                <li><a href="#" onclick="showPage('solutions')" class="nav-link">Solutions IA</a></li>
+                <li><a href="#" onclick="showPage('impact')" class="nav-link">Impact Écologique</a></li>
+                <li><a href="#" onclick="showPage('technologies')" class="nav-link">Technologies</a></li>
+                <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Accueil -->
+    <div id="accueil" class="page active">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>L'IA au Service de la Planète</h1>
+                <p>Découvrez comment l'intelligence artificielle révolutionne la protection environnementale et ouvre la voie vers un avenir plus durable</p>
+                <a href="#" onclick="showPage('solutions')" class="cta-button">Explorez nos Solutions</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Notre Vision</h2>
+                
+                <div class="content-zone text-zone fade-in">
+                    <h3>Une Alliance Technologique et Environnementale</h3>
+                    <p>L'intelligence artificielle représente aujourd'hui l'un des outils les plus puissants pour relever les défis environnementaux de notre époque. Notre mission consiste à développer et déployer des solutions IA innovantes qui permettent de surveiller, protéger et restaurer notre environnement de manière intelligente et efficace.</p>
+                    <p>Nous croyons fermement que la technologie peut être un catalyseur de changement positif, permettant une gestion plus précise des ressources, une réduction significative des émissions et une optimisation des processus industriels pour un impact minimal sur notre planète.</p>
+                </div>
+
+                <div class="grid-2">
+                    <div class="content-zone media-zone fade-in">
+                        <h3>Surveillance Satellitaire</h3>
+                        <div class="media-placeholder">
+                            📡 Zone pour image/vidéo
+                            <br>Surveillance des forêts par satellite
+                        </div>
+                        <p>Technologies de monitoring environnemental en temps réel</p>
+                    </div>
+                    
+                    <div class="content-zone media-zone fade-in">
+                        <h3>Analyse Prédictive</h3>
+                        <div class="media-placeholder">
+                            📊 Zone pour graphiques interactifs
+                            <br>Modèles prédictifs climatiques
+                        </div>
+                        <p>Algorithmes avancés pour anticiper les changements environnementaux</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Page Solutions -->
+    <div id="solutions" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Solutions IA pour l'Écologie</h2>
+                
+                <div class="content-zone text-zone fade-in">
+                    <h3>Optimisation Énergétique Intelligente</h3>
+                    <p>Nos algorithmes d'apprentissage automatique analysent en continu les patterns de consommation énergétique pour optimiser l'utilisation des ressources. Grâce à des réseaux de neurones avancés, nous pouvons réduire la consommation d'énergie de 30 à 40% dans les bâtiments intelligents.</p>
+                    <p>Cette approche permet non seulement de diminuer les coûts opérationnels, mais aussi de réduire significativement l'empreinte carbone des infrastructures urbaines et industrielles.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="content-zone media-zone fade-in">
+                        <h3>Smart Grids</h3>
+                        <div class="media-placeholder">
+                            ⚡ Zone pour schéma interactif
+                            <br>Réseau électrique intelligent
+                        </div>
+                    </div>
+                    
+                    <div class="content-zone media-zone fade-in">
+                        <h3>Bâtiments Connectés</h3>
+                        <div class="media-placeholder">
+                            🏢 Zone pour animation 3D
+                            <br>Système de gestion automatisé
+                        </div>
+                    </div>
+                    
+                    <div class="content-zone media-zone fade-in">
+                        <h3>Énergies Renouvelables</h3>
+                        <div class="media-placeholder">
+                            🌱 Zone pour vidéo
+                            <br>Optimisation solaire et éolienne
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-zone text-zone fade-in">
+                    <h3>Gestion Intelligente des Déchets</h3>
+                    <p>Notre plateforme IA révolutionne la gestion des déchets urbains grâce à la vision par ordinateur et l'analyse prédictive. Les systèmes de tri automatisé atteignent une précision de 95% dans la séparation des matériaux recyclables.</p>
+                    <p>L'optimisation des tournées de collecte permet de réduire de 25% les émissions de CO2 liées au transport des déchets, tout en améliorant l'efficacité opérationnelle des services municipaux.</p>
+                </div>
+
+                <div class="content-zone media-zone fade-in">
+                    <h3>Système de Tri Automatisé</h3>
+                    <div class="media-placeholder">
+                        🤖 Zone pour vidéo démonstrative
+                        <br>Robots de tri utilisant la vision par ordinateur
+                        <br>Précision: 95% | Vitesse: 2000 objets/heure
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Page Impact -->
+    <div id="impact" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Impact Écologique Mesurable</h2>
+                
+                <div class="grid-2">
+                    <div class="content-zone text-zone fade-in">
+                        <h3>Réduction des Émissions CO2</h3>
+                        <p>Nos solutions IA ont permis de réduire les émissions de CO2 de plus de 2 millions de tonnes en 2024. Cette performance résulte de l'optimisation énergétique, de la gestion intelligente des transports et de l'amélioration des processus industriels.</p>
+                        <p>L'impact se mesure également par la préservation de 150 000 hectares de forêts grâce à nos systèmes de surveillance et d'alerte précoce contre la déforestation.</p>
+                    </div>
+                    
+                    <div class="content-zone media-zone fade-in">
+                        <h3>Statistiques d'Impact</h3>
+                        <div class="media-placeholder">
+                            📈 Zone pour dashboard interactif
+                            <br>Graphiques temps réel des réductions CO2
+                            <br>Cartes des zones protégées
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-zone text-zone fade-in">
+                    <h3>Préservation de la Biodiversité</h3>
+                    <p>L'intelligence artificielle joue un rôle crucial dans la protection des écosystèmes. Nos systèmes de reconnaissance audio permettent de surveiller la santé des populations d'oiseaux et d'identifier les zones à risque. Les algorithmes d'analyse d'images satellitaires détectent les changements dans les habitats naturels avec une précision inégalée.</p>
+                    <p>Ces technologies contribuent directement à la conservation de 500 espèces menacées et au maintien de l'équilibre écologique dans 50 parcs nationaux à travers le monde.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="content-zone media-zone fade-in">
+                        <h3>Surveillance Marine</h3>
+                        <div class="media-placeholder">
+                            🌊 Zone pour vidéo sous-marine
+                            <br>Monitoring des récifs coralliens
+                        </div>
+                    </div>
+                    
+                    <div class="content-zone media-zone fade-in">
+                        <h3>Protection Forestière</h3>
+                        <div class="media-placeholder">
+                            🌲 Zone pour carte interactive
+                            <br>Détection temps réel déforestation
+                        </div>
+                    </div>
+                    
+                    <div class="content-zone media-zone fade-in">
+                        <h3>Faune Sauvage</h3>
+                        <div class="media-placeholder">
+                            🦋 Zone pour galerie photos
+                            <br>Suivi populations espèces
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Page Technologies -->
+    <div id="technologies" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Technologies d'Avant-Garde</h2>
+                
+                <div class="content-zone text-zone fade-in">
+                    <h3>Intelligence Artificielle Écologique</h3>
+                    <p>Nos technologies s'appuient sur les dernières avancées en matière d'intelligence artificielle écologique. Les réseaux de neurones convolutifs analysent les images satellitaires pour détecter les changements environnementaux, tandis que les algorithmes de traitement du langage naturel extraient des insights précieux à partir de milliers de rapports scientifiques.</p>
+                    <p>L'apprentissage par renforcement optimise en continu les processus énergétiques, permettant une adaptation dynamique aux conditions changeantes et une amélioration constante des performances environnementales.</p>
+                </div>
+
+                <div class="content-zone media-zone fade-in">
+                    <h3>Architecture Système</h3>
+                    <div class="media-placeholder">
+                        💻 Zone pour schéma technique
+                        <br>Architecture cloud et edge computing
+                        <br>Pipeline de traitement des données environnementales
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="content-zone text-zone fade-in">
+                        <h3>Capteurs IoT Intelligents</h3>
+                        <p>Notre réseau de capteurs IoT collecte des données environnementales en temps réel : qualité de l'air, température, humidité, niveau sonore, et bien plus encore. Ces données alimentent nos modèles prédictifs pour une prise de décision éclairée.</p>
+                        <p>L'intégration avec les technologies edge computing permet un traitement local des données, réduisant la latence et optimisant la consommation énergétique des équipements.</p>
+                    </div>
+                    
+                    <div class="content-zone media-zone fade-in">
+                        <h3>Réseau de Capteurs</h3>
+                        <div class="media-placeholder">
+                            📡 Zone pour animation interactive
+                            <br>Visualisation réseau IoT temps réel
+                            <br>1000+ capteurs actifs
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-zone text-zone fade-in">
+                    <h3>Blockchain pour la Traçabilité Carbone</h3>
+                    <p>La technologie blockchain garantit la transparence et la traçabilité de nos mesures d'impact environnemental. Chaque réduction d'émission, chaque action de conservation est enregistrée de manière immuable, créant un système de confiance pour tous les acteurs de l'écosystème.</p>
+                    <p>Cette approche permet également de créer des marchés de compensation carbone plus équitables et de récompenser directement les actions positives pour l'environnement.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Page Contact -->
+    <div id="contact" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Rejoignez la Révolution Écologique</h2>
+                
+                <div class="grid-2">
+                    <div class="content-zone text-zone fade-in">
+                        <h3>Collaborons pour un Avenir Durable</h3>
+                        <p>Vous êtes une entreprise, une collectivité ou une organisation souhaitant intégrer l'intelligence artificielle dans votre stratégie environnementale ? Contactez-nous pour découvrir comment nos solutions peuvent transformer votre impact écologique.</p>
+                        <p>Nos experts sont là pour vous accompagner dans la définition de votre stratégie IA écologique, depuis l'audit initial jusqu'à la mise en œuvre complète de solutions sur mesure.</p>
+                        
+                        <h4>Informations de Contact</h4>
+                        <p><strong>Email :</strong> contact@ecoia.fr</p>
+                        <p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
+                        <p><strong>Adresse :</strong> 123 Avenue de l'Innovation Verte, 75001 Paris</p>
+                    </div>
+                    
+                    <div class="content-zone media-zone fade-in">
+                        <h3>Bureaux & Laboratoires</h3>
+                        <div class="media-placeholder">
+                            🗺️ Zone pour carte interactive
+                            <br>Localisation de nos centres R&D
+                            <br>Paris • Lyon • Toulouse
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-zone text-zone fade-in">
+                    <h3>Partenaires & Certifications</h3>
+                    <p>EcoIA est certifié ISO 14001 pour son système de management environnemental et travaille en partenariat avec les principales institutions de recherche en IA et écologie. Nos solutions respectent les plus hauts standards de sécurité et de performance environnementale.</p>
+                </div>
+
+                <div class="content-zone media-zone fade-in">
+                    <h3>Nos Partenaires</h3>
+                    <div class="media-placeholder">
+                        🤝 Zone pour logos partenaires
+                        <br>Universités • Instituts de recherche • Entreprises tech
+                        <br>Organismes environnementaux
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 EcoIA. Tous droits réservés. | L'intelligence artificielle au service de l'environnement</p>
+            <p>Ensemble, construisons un avenir plus vert et plus intelligent.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation entre pages
+        function showPage(pageId) {
+            // Masquer toutes les pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Afficher la page sélectionnée
+            document.getElementById(pageId).classList.add('active');
+            
+            // Mettre à jour la navigation active
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Scroll vers le haut
+            window.scrollTo(0, 0);
+            
+            // Réinitialiser les animations
+            setTimeout(() => {
+                initAnimations();
+            }, 100);
+        }
+
+        // Animation au scroll
+        function initAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            elements.forEach(el => {
+                el.classList.remove('visible');
+                observer.observe(el);
+            });
+        }
+
+        // Effet navbar au scroll
+        function handleNavbarScroll() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            initAnimations();
+            window.addEventListener('scroll', handleNavbarScroll);
+        });
+
+        // Smooth scrolling pour les liens internes
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
